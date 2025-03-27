@@ -1,0 +1,611 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feliz Cumpleaños, Mi Amor</title>
+    <style>
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background: rgba(0,0,0,0.3);
+            color: white;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .title {
+            font-size: 3rem;
+            margin-bottom: 30px;
+            color: #ffffff;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .heart {
+            font-size: 5rem;
+            color: #ff1493;
+            animation: pulse 1.5s infinite;
+        }
+
+        .birthday-message {
+            color: #ff0000;
+            font-size: 1.5rem;
+            line-height: 1.6;
+            margin-bottom: 30px;
+        }
+
+        .photo {
+            max-width: 80%; /* Ajusta el ancho máximo al 80% del contenedor */
+            width: 250px; /* Ancho fijo para dispositivos móviles */
+            height: 250px; /* Altura fija para mantener la proporción */
+            object-fit: cover; /* Asegura que la imagen cubra todo el cuadro */
+            border-radius: 50%;
+            border: 5px solid white;
+            box-shadow: 0 0 20px rgba(0,0,0,0.2);
+            margin: 10px; /* Espacio entre imágenes */
+        }
+
+        /* Ajustes adicionales para dispositivos móviles */
+        @media (max-width: 768px) {
+            .photo {
+                width: 200px; /* Tamaño más pequeño para móviles */
+                height: 200px;
+            }
+        }
+
+        .photo {
+            width: 200px; /* Ajuste para tamaño igual */
+            height: 300px; /* Ajuste para tamaño igual */
+            border-radius: 50%;
+            border: 5px solid white;
+            box-shadow: 0 0 20px rgba(0,0,0,0.2);
+            position: relative; /* Para posicionar los corazones alrededor */
+            margin: 0 10px; /* Espacio entre imágenes */
+        }
+
+        .floating-heart {
+            position: absolute;
+            font-size: 3rem;
+            color: rgba(255, 20, 147, 0.7);
+            animation: float-heart 2s infinite alternate;
+        }
+
+        @keyframes color-change {
+            0% {
+                color: #ff0000; /* Rojo */
+            }
+
+            50% {
+                color: #ffffff; /* Blanco */
+            }
+
+            100% {
+                color: #0000ff; /* Azul */
+            }
+        }
+
+        .birthday-message {
+            animation: color-change 5s infinite; /* Cambia cada 3 segundos */
+        }
+
+        @keyframes sparkle {
+            0% {
+                text-shadow: 0 0 5px rgba(255, 255, 0, 0.5), 0 0 10px rgba(255, 0, 0, 0.5), 0 0 15px rgba(0, 255, 0, 0.5), 0 0 20px rgba(0, 0, 255, 0.5);
+                color: #ff0000; /* Color inicial: rojo */
+            }
+
+            50% {
+                text-shadow: 0 0 10px rgba(0, 255, 255, 0.7), 0 0 15px rgba(255, 255, 0, 0.7), 0 0 20px rgba(255, 0, 255, 0.7), 0 0 25px rgba(0, 255, 0, 0.7);
+                color: #00ff00; /* Color intermedio: verde */
+            }
+
+            100% {
+                text-shadow: 0 0 5px rgba(255, 0, 255, 0.5), 0 0 10px rgba(0, 255, 0, 0.5), 0 0 15px rgba(255, 255, 0, 0.5), 0 0 20px rgba(0, 0, 255, 0.5);
+                color: #0000ff; /* Color final: azul */
+            }
+        }
+
+        .heart {
+            font-size: 5rem; /* Ajusta el tamaño del corazón */
+            animation: sparkle 2s infinite; /* Efecto dinámico */
+        }
+
+        .floating-heart {
+            animation: sparkle 2s infinite, float-heart 2s infinite alternate; /* Combina animaciones de brillo y movimiento */
+        }
+
+
+        @keyframes float-heart {
+            0% {
+                transform: translateY(0) rotate(0deg);
+            }
+
+            100% {
+                transform: translateY(-15px) rotate(20deg);
+            }
+        }
+
+        /* Posicionamiento de los corazones flotantes */
+        .heart1 {
+            top: -20px;
+            left: -20px;
+        }
+
+        .heart2 {
+            top: -20px;
+            right: -20px;
+        }
+
+        .heart3 {
+            bottom: -20px;
+            left: -20px;
+        }
+
+        .heart4 {
+            bottom: -20px;
+            right: -20px;
+        }
+
+        .button {
+            background-color: #ff1493;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 1rem;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+            .button:hover {
+                background-color: #ff69b4;
+            }
+
+        footer {
+            background-color: #0094ff;
+            color: #930d47;
+            text-align: center;
+            padding: 15px;
+            margin-top: auto;
+            width: 100%;
+        }
+
+        @keyframes color-change {
+            0% {
+                color: #ff0000; /* Rojo */
+            }
+
+            50% {
+                color: #00ff00; /* Verde */
+            }
+
+            100% {
+                color: #0000ff; /* Azul */
+            }
+        }
+
+        .title {
+            animation: color-change 3s infinite; /* Cambia cada 3 segundos */
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.2);
+            }
+        }
+    </style>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Título de Tu Página</title>
+    <style>
+
+        /* CSS existente */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: white;
+        }
+        /* Otros estilos existentes */
+
+        /* Estilos para el card de cumpleaños */
+        .birthday-message {
+            background: linear-gradient(120deg, #ff9a9e, #fad0c4);
+            border-radius: 15px;
+            padding: 20px;
+            color: #fff;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+            text-align: center;
+            margin: 20px; /* Añadir margen para separación */
+        }
+
+        @keyframes twinkle {
+            0%, 100% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.05);
+            }
+        }
+
+        .stars {
+            position: relative;
+        }
+
+            .stars::before {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: url('https://example.com/stars.gif') repeat; /* Cambia la URL por la de tu imagen */
+                z-index: -1;
+            }
+    </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Footer Superior</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        .top-footer {
+            padding: 20px;
+            text-align: center;
+            border: 10px solid transparent; /* Espacio para el borde de arcoíris */
+            border-radius: 15px; /* Opcional: bordes redondeados */
+            position: relative; /* Necesario para la pseudo-elemento */
+        }
+
+            .top-footer::before {
+                content: '';
+                position: absolute;
+                top: -10px; /* Ajusta según el grosor del borde */
+                left: -10px; /* Ajusta según el grosor del borde */
+                right: -10px; /* Ajusta según el grosor del borde */
+                bottom: -10px; /* Ajusta según el grosor del borde */
+                background: linear-gradient(45deg, red, orange, yellow, green, blue, indigo, violet);
+                border-radius: 15px; /* Debe coincidir con el de .top-footer */
+                z-index: -1; /* Envía el arcoíris detrás del contenido */
+            }
+
+        .footer-message {
+            font-size: 1.2em;
+            font-weight: bold;
+        }
+
+        .images-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center; /* Centra las imágenes */
+        }
+
+        .image {
+            flex: 1 1 100%; /* Hace que cada imagen ocupe el 100% del ancho en móviles */
+            max-width: 300px; /* Limitación de ancho en pantallas más grandes */
+            margin: 10px; /* Espaciado entre imágenes */
+        }
+
+            .image img {
+                width: 100%;
+                height: auto; /* Mantiene proporciones */
+                object-fit: cover; /* Asegura que la imagen se recorte adecuadamente si es necesario */
+            }
+
+        .video-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center; /* Centra los videos */
+            gap: 10px; /* Espacio entre los videos */
+        }
+
+        video {
+            width: 40%; /* Ajusta a un ancho del 40% del contenedor */
+            height: auto; /* Mantiene proporciones */
+        }
+    </style>
+
+
+
+</head>
+<body>
+    <!-- Nuevo footer en la parte superior -->
+    <div class="top-footer">
+        <div class="footer-message">🌟✨ HOLA MI AMOR ✨🌟</div>
+    </div>
+    <div class="images-container">
+        <div class="image">
+            <img src="./images/amor.jpeg" alt="MI PRECIOSA🌟">
+        </div>
+        <div class="image">
+            <img src="./images/yo.jpeg" alt="TU NOVIO🌟">
+        </div>
+        <div class="image">
+            <img src="./images/amr.jpeg" alt="MI MAMASOTA">
+        </div>
+    </div>
+
+    <div class="video-container">
+        <video controls>
+            <source src="./images/mivid.mp4" type="video/mp4">
+            Tu navegador no soporta la etiqueta de video.
+        </video>
+        <video controls>
+            <source src="./images/yy.mp4" type="video/mp4">
+            Tu navegador no soporta la etiqueta de video.
+        </video>
+        <video controls>
+            <source src="./images/jj.mp4" type="video/mp4">
+            Tu navegador no soporta la etiqueta de video.
+        </video>
+    </div>
+
+
+
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Footer Dinámico en el Body</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        .dynamic-footer {
+            background: #4caf50;
+            text-align: center;
+            padding: 20px;
+            color: #0000ff;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+            font-size: 1.2em;
+            font-weight: bold;
+            margin: 20px auto;
+            max-width: 400px;
+            animation: color-change 3s infinite, fade-in-out 3s infinite;
+        }
+
+        @keyframes color-change {
+            0% {
+                color: #0000ff; /* Color azul inicial */
+            }
+
+            50% {
+                color: #ff1493; /* Color rosado intermedio */
+            }
+
+            100% {
+                color: #0000ff; /* Regresa al azul */
+            }
+        }
+
+        @keyframes fade-in-out {
+            0% {
+                opacity: 0;
+            }
+
+            50% {
+                opacity: 1;
+            }
+
+            100% {
+                opacity: 0;
+            }
+        }
+    </style>
+</head>
+
+
+
+<body>
+    <!-- Footer dinámico dentro del cuerpo -->
+    <div class="dynamic-footer" id="footer-message">🌟✨ Mensaje aparecerá aquí ✨🌟</div>
+
+    <script>
+        const messages = [
+            "🥰Feliz Cumpleaños, Mi Amor🎉",
+            "🎉❤️🌹 Hoy celebro el día en que nació el amor de mi vida 🌹❤️🎉",
+            "🎉❤️🌹 Te amoo tanto mi amor🌹❤️🎉",
+            "🎉❤️🌹 Mi Elizaeth🌹❤️🎉",
+            "💕🌟 Cada momento contigo es único, mi reina 🌟💕",
+            "👑💋 Eres mi mayor tesoro, siempre te amaré 💋👑",
+            "👑💋 Mi preciosa 💋👑"
+        ];
+
+        const footerElement = document.getElementById('footer-message');
+        let index = 0;
+
+        function rotateMessages() {
+            footerElement.textContent = messages[index];
+            index++;
+
+            // Reiniciar índice si llega al final del array
+            if (index >= messages.length) {
+                index = 0;
+            }
+
+            // Cambiar el mensaje cada 3 segundos
+            setTimeout(rotateMessages, 3000);
+        }
+
+        // Iniciar la rotación de mensajes
+        rotateMessages();
+    </script>
+</body>
+</html>
+
+
+<body>
+    <div class="container">
+        <h1 class="title">🥰Feliz Cumpleaños, Mi Amor🎉</h1>
+
+        <div class="heart">❤️</div>
+
+        <div style="position: relative; display: inline-block;">
+            <img src="./images/mi amor.jpeg" alt="Mi Amor" class="photo">
+
+        </div>
+        <div style="position: relative; display: inline-block;">
+            <img src="./images/mivida.jpeg" alt="Mi Amor" class="photo">
+
+        </div>
+
+        <div style="position: relative; display: inline-block;">
+
+        </div>
+
+        <div class="heart">❤️</div>
+
+        <div class="birthday-message">
+            <p>
+                🥰😍MI AMOR😍, 💏FELIZ CUMPLEAÑOS MI PRINCESA🥰🎂
+            </p>
+            <p>
+                🎉❤️🌹 ¡FELIZ CUMPLEAÑOS, MI REINA HERMOSA! 🌹❤️🎉 HOY CELEBRO EL DÍA EN QUE NACIÓ EL AMOR DE MI VIDA. 🥰💖 CADA MOMENTO CONTIGO ES UN REGALO Y CADA SONRISA TUYA ILUMINA MI MUNDO. 🌟😘 DESEO QUE ESTE NUEVO AÑO TE TRAIGA MUCHA FELICIDAD, SUEÑOS CUMPLIDOS Y TODO EL AMOR QUE MERECES... ¡EMPEZANDO POR EL MÍO! 💕🌈
+
+                ERES MI MAYOR TESORO, MI COMPAÑERA PERFECTA Y EL MOTIVO DE MIS MEJORES DÍAS. 🥂💋 PROMETO HACER DE TU DÍA EL MÁS ESPECIAL Y SEGUIR AMÁNDOTE CON TODO MI CORAZÓN. ❤️🌺 ¡DISFRUTA AL MÁXIMO, PRINCESA! 👑🌹
+            </p>
+        </div>
+
+        <button class="button">Ver Momentos Especiales</button>
+    </div>
+
+    <footer>
+        <p>
+            ❤️Creado con amor especialmente para ti❤️
+        </p>
+        <p>
+            ❤️DE PARTE DE: 🥰Tu novio que te ama ❤️
+        </p>
+        <p>
+            ❤️PARA: 🥰Mi novia hermosa🥰❤️
+        </p>
+        <p>&copy; 🥰27/03/2005🥰  - 🎉🥰FELIZ CUMPLEAÑOS MI AMOR🎉🥰</p>
+    </footer>
+
+    <script>
+        // Array de textos para mostrar en el elemento de título
+        const messages = [
+            "🥰🥰Feliz Cumpleaños, Mi Amor🥰🎉",
+            "🎉❤️🌹 Hoy celebro el día en que nació el amor de mi vida 🌹❤️🎉",
+            "🎉❤️🌹 Te amoo tanto mi amor🌹❤️🎉",
+            "💕🌟 Cada momento contigo es único, mi reina 🌟💕",
+            "👑💋 Eres mi mayor tesoro, siempre te amaré 💋👑",
+            "👑💋 Mi preciosa 💋👑"
+        ];
+
+        const titleElement = document.querySelector('.title');
+        let index = 0;
+
+        // Función para cambiar el texto automáticamente
+        function rotateMessages() {
+            titleElement.textContent = messages[index];
+            index++;
+
+            // Reiniciar índice si llega al final del array
+            if (index >= messages.length) {
+                index = 0;
+            }
+
+            // Cambiar el texto cada 3 segundos
+            setTimeout(rotateMessages, 3000);
+        }
+
+        // Iniciar la rotación de mensajes
+        rotateMessages();
+
+        document.querySelector('.button').addEventListener('click', function () {
+            alert('¡Próximamente más sorpresas para ti, mi amor!');
+        });
+
+        function createStars() {
+            const body = document.body;
+            const starCount = 300;
+            const colors = ['', 'blue', 'pink', 'purple'];
+
+            for (let i = 0; i < starCount; i++) {
+                const star = document.createElement('div');
+                star.classList.add('star');
+
+                // Posición aleatoria
+                star.style.left = `${Math.random() * 100}%`;
+                star.style.top = `${Math.random() * 100}%`;
+
+                // Tamaño aleatorio
+                const size = Math.random() * 3;
+                star.style.width = `${size}px`;
+                star.style.height = `${size}px`;
+
+                // Añadir color aleatorio
+                if (Math.random() > 0.7) {
+                    const colorClass = colors[Math.floor(Math.random() * colors.length)];
+                    star.classList.add('colored', colorClass);
+                }
+
+                // Animación
+                star.style.animation = `
+                            twinkle ${Math.random() * 3 + 2}s infinite alternate,
+                            float ${Math.random() * 5 + 3}s infinite alternate
+                            `;
+
+                body.appendChild(star);
+            }
+        }
+
+        // Añadir keyframes de animación
+        const styleSheet = document.createElement('style');
+        styleSheet.type = 'text/css';
+        styleSheet.innerText = `
+                    @keyframes twinkle {
+                        0% {
+                            opacity: 0.2;
+                            transform: scale(0.5);
+                        }
+                        100% {
+                            opacity: 1;
+                            transform: scale(1);
+                        }
+                    }
+                    @keyframes float {
+                        0% { transform: translateY(0); }
+                        100% { transform: translateY(-10px); }
+                    }
+                    `;
+        document.head.appendChild(styleSheet);
+
+        // Crear estrellas al cargar la página
+        createStars();
+
+        // Recrear estrellas si se redimensiona la ventana
+        window.addEventListener('resize', () => {
+            // Eliminar estrellas existentes
+            document.querySelectorAll('.star').forEach(star => star.remove());
+            // Crear nuevas estrellas
+            createStars();
+        });
+
+    </script>
+</body>
